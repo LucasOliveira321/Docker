@@ -81,3 +81,30 @@ Caso queria deixar uma porta expecifica, podemos utilizar o comando com o " -p "
 lucas@LucasOliveira:~$ docker run -d -p 8080:80 dockersamples/static-site
 d55f4ee8451c671e608d1416f91bebb22810d64eac4f31c30d9face4f87a9021
 ```
+<br>
+
+## Persistindo dados no container
+>Utilizando bind mounts.
+
+Bind Mounts vai fazer basicamente o bind, uma ligação entre um ponto de montagem do nosso sistema operacional e algum diretório dentro do container.Eu posso informar que quando esse container for criado e executado eu quero que as informações persistidas em determinado diretório dentro dele sejam persistidas em algum diretório na minha máquina local mesmo, no meu host. Veja o comando como fica:
+
+```sh
+PS C:\Users\lucas\OneDrive\Desktop\Repositorio> docker run -it -v C:\Users\lucas\OneDrive\Desktop\Repositorio:/app ubuntu bash
+```
+
+>Utilizando volume.
+
+Então conseguimos gerenciar esses volumes agora através da interface do Docker. Não ficamos 100% dependentes do nosso sistema de arquivos do nosso sistema operacional. E sim o Docker vai gerenciar isso para nós agora. Podemos utilizar o comando abaixo para consultar os volumes existentes:
+
+```sh
+PS C:\Users\lucas\OneDrive\Desktop\Repositorio> docker volume ls
+```
+E para criar um novo volume vamos utilizar o comando:
+
+```sh
+PS C:\Users\lucas\OneDrive\Desktop\Repositorio> docker volume create nome-do-volume
+```
+O volume podemos utilizar para mapear uma pasta no container com o comando que está abaixo:
+```sh
+PS C:\Users\lucas\OneDrive\Desktop\Repositorio> docker run -it -v nome-do-volume:/app ubuntu bash
+```
