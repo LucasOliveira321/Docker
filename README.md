@@ -1,8 +1,7 @@
 # Docker
-> Comandos básicos.
+## Comandos básicos
 
-Rodar comandos:
-
+O docker run executa um contêiner:
 ```sh
 lucas@LucasOliveira:~$ docker run
 ```
